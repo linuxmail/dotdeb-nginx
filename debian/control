@@ -83,7 +83,6 @@ Depends: nginx-common (= ${source:Version}),
          libnginx-mod-http-geoip (= ${binary:Version}),
          libnginx-mod-http-image-filter (= ${binary:Version}),
          libnginx-mod-http-xslt-filter (= ${binary:Version}),
-         libnginx-mod-mail (= ${binary:Version}),
          libnginx-mod-stream (= ${binary:Version}),
          libnginx-mod-http-auth-pam (= ${binary:Version}),
          ${misc:Depends},
@@ -181,7 +180,6 @@ Depends: nginx-common (= ${source:Version}),
          libnginx-mod-http-geoip (= ${binary:Version}),
          libnginx-mod-http-image-filter (= ${binary:Version}),
          libnginx-mod-http-xslt-filter (= ${binary:Version}),
-         libnginx-mod-mail (= ${binary:Version}),
          libnginx-mod-stream (= ${binary:Version}),
          libnginx-mod-http-auth-pam (= ${binary:Version}),
          libnginx-mod-http-lua (= ${binary:Version}),
@@ -263,15 +261,6 @@ Description: XSLT Transformation module for Nginx
  .
  The transformation can be adjusted by setting the relevant configuration
  parameters.
-
-Package: libnginx-mod-mail
-Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: Mail module for Nginx
- The nginx_mail module adds mail proxy support to nginx.
- .
- The module supports proxying all the standard mail protocols such as IMAP,
- POP3 & SMTP.
 
 Package: libnginx-mod-stream
 Architecture: any
