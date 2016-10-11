@@ -1,0 +1,50 @@
+Description: Remove Mail and Dav support
+ As Mail is not required and Dav module isn't available, so removing both in debian/rules
+Author: Denny Fuchs <linuxmail@4lin.net>
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/debian/rules
++++ b/debian/rules
+@@ -11,7 +11,7 @@
+ export DEBIAN_NGINX_PERL_LDFLAGS
+ 
+ FLAVOURS := full light extras
+-DYN_MODS := http-geoip http-image-filter http-xslt-filter mail stream http-auth-pam http-lua http-perl http-ndk
++DYN_MODS := http-geoip http-image-filter http-xslt-filter stream http-auth-pam http-lua http-perl http-ndk
+ 
+ MODULESDIR = $(CURDIR)/debian/modules
+ BASEDIR = $(CURDIR)
+@@ -51,7 +51,6 @@
+ 			--with-http_realip_module \
+ 			--with-http_auth_request_module \
+ 			--with-http_v2_module \
+-			--with-http_dav_module \
+ 			--with-file-aio \
+ 			--with-threads
+ 
+@@ -84,10 +83,7 @@
+ 			--with-http_xslt_module=dynamic \
+ 			--with-stream=dynamic \
+ 			--with-stream_ssl_module \
+-			--with-mail=dynamic \
+-			--with-mail_ssl_module \
+ 			--add-dynamic-module=$(MODULESDIR)/nginx-auth-pam \
+-			--add-module=$(MODULESDIR)/nginx-dav-ext-module \
+ 			--add-module=$(MODULESDIR)/nginx-echo \
+ 			--add-module=$(MODULESDIR)/nginx-upstream-fair \
+ 			--add-module=$(MODULESDIR)/ngx_http_substitutions_filter_module \
+@@ -111,14 +107,11 @@
+ 			--with-http_secure_link_module \
+ 			--with-http_sub_module \
+ 			--with-http_xslt_module=dynamic \
+-			--with-mail=dynamic \
+-			--with-mail_ssl_module \
+ 			--with-stream=dynamic \
+ 			--with-stream_ssl_module \
+ 			--add-module=$(MODULESDIR)/headers-more-nginx-module \
+ 			--add-dynamic-module=$(MODULESDIR)/nginx-auth-pam \
+ 			--add-module=$(MODULESDIR)/nginx-cache-purge \
+-			--add-module=$(MODULESDIR)/nginx-dav-ext-module \
+ 			--add-dynamic-module=$(MODULESDIR)/nginx-development-kit \
+ 			--add-module=$(MODULESDIR)/nginx-echo \
+ 			--add-module=$(MODULESDIR)/ngx-fancyindex \
