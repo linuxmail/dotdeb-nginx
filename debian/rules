@@ -124,7 +124,6 @@ extras_configure_flags := \
 			--add-module=$(MODULESDIR)/ngx_http_pinba_module \
 			--add-module=$(MODULESDIR)/ngx_pagespeed \
 			--add-module=$(MODULESDIR)/nginx-x-rid-header \
-			--add-module=$(MODULESDIR)/nginx-rtmp-module \
 				--with-ld-opt=-lossp-uuid
 
 %:
